@@ -1,10 +1,14 @@
 def main():
-    with open("books/frankenstein.txt") as f:
-        text = f.read()
-
+    book = "books/frankenstein.txt"
+    text = read_file(book)
     word_count = count_words(text)
     unique_letters = count_unique_letters(text)
     print_report(word_count, unique_letters)
+
+
+def read_file(path: str) -> str:
+    with open(path) as f:
+        return f.read()
 
 
 def count_words(text: str) -> int:
