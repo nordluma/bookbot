@@ -1,5 +1,7 @@
 def main():
-    print("hello world")
+    with open("books/frankenstein.txt") as f:
+        text = f.read()
+        print(text)
 
 
 if __name__ == "__main__":
