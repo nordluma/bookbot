@@ -12,15 +12,11 @@ def count_words(text: str) -> int:
 
 
 def count_unique_letters(text: str) -> dict[str, int]:
-    unique_letters = {}
-    lower_case_text = text.lower()
-    for i in range(len(lower_case_text)):
-        c = lower_case_text[i].strip()
-        if c not in unique_letters and c.isalpha():
-            unique_letters[c] = 1
-        elif c.isalpha():
-            unique_letters[c] += 1
-    return dict(sorted(unique_letters.items(), key=lambda x: x[1], reverse=True))
+    letter_count = {}
+    for c in text.lower():
+        if c.isalpha():
+            letter_count[c] = letter_count.get(c, 0) + 1
+    return dict(sorted(letter_count.items(), key=lambda x: x[1], reverse=True))
 
 
 if __name__ == "__main__":
