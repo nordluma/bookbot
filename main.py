@@ -3,7 +3,7 @@ def main():
     text = read_file(book)
     word_count = count_words(text)
     unique_letters = count_unique_letters(text)
-    print_report(word_count, unique_letters)
+    print_report(book, word_count, unique_letters)
 
 
 def read_file(path: str) -> str:
@@ -23,8 +23,8 @@ def count_unique_letters(text: str) -> dict[str, int]:
     return dict(sorted(letter_count.items(), key=lambda x: x[1], reverse=True))
 
 
-def print_report(word_count: int, unique_letters: dict[str, int]):
-    print("--- Begin report of books/frankenstein.txt ---")
+def print_report(book: str, word_count: int, unique_letters: dict[str, int]):
+    print(f"--- Begin report of {book} ---")
     print("\n")
     print(f"{word_count} words found in the document")
     for letter, count in unique_letters.items():
